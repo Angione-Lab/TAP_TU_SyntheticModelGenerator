@@ -1,0 +1,115 @@
+{
+	"id_prefix" : "Synthetic Scenario (Milk)",
+	"place_names" : [
+		"Leeds, England",
+		"Bradford, England"
+	],
+	"depot_tags" : {
+		"place": [
+			"farm"
+			]
+	},
+	"delivery_tags" : {
+		"building": [
+			"house", 
+			"detached", 
+			"static_caravan", 
+			"semidetached_house", 
+			"bungalow", 
+			"manor", 
+			"villa" 
+			]
+	},
+	"pickup_tags" : {},
+	"target_min_depots" : 1,
+	"target_max_depots" : 1,
+	"target_min_vehicles_per_depot" : 18,
+	"target_max_vehicles_per_depot" : 20,
+	"target_min_deliveries" : 2500,
+	"target_max_deliveries" : 2800,
+	"target_min_pickups" : 0,
+	"target_max_pickups" : 0,
+	"target_min_shipments" : 0,
+	"target_max_shipments" : 0,
+	"target_min_shipment_pickup_locations" : 0,
+	"target_max_shipment_pickup_locations" : 0,
+	"target_min_shipment_delivery_loications" : 0,
+	"target_max_shipment_delivery_loications" : 0,
+	"vehicle_templates" : [
+		{
+			"definition": {
+				"costPerTravelHour": 20.8,
+				"costPerWaitingHour": 2.0,
+				"costPerServicingHour": 1.0,
+				"costPerKm": 1.0,
+				"costFixed": 500.0,
+				"costPerStop": 1.0,
+				"workTimeHours": [
+					{
+						"inclusiveLowerLimit": 8.0,
+						"prohibited": true
+					}
+				],
+				"start": {
+					"type": "START_AT_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": null,
+					"openTime": "2023-07-20T22:30",
+					"_id": null
+				},
+				"end": {
+					"type": "RETURN_TO_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": null,
+					"closeTime": "2023-07-21T07:00",
+					"_id": null
+				},
+				"capacities": [
+					270
+				],
+				"skills": [],
+				"preloadedStops": [
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-21T02:30",
+						"closeTime": "2023-07-21T04:00",
+						"_id": null
+					}
+				],
+				"travelTimeMultiplier": 0.8
+			},
+			"_id": null
+		}
+	],
+	"deliveries_templates" : [
+		{
+			"quantities": [
+				1
+			],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+				{
+					"type": "DELIVER",
+					"durationMillis": 45000,
+					"costFixed": 0.0,
+					"centering": true,
+					"name": null,
+					"address": null,
+					"coordinate": null,
+					"openTime": "2023-07-20T23:00",
+					"closeTime": "2023-07-21T06:00",
+					"_id": null
+				}
+			],
+			"_id": null
+		}
+	],
+	"pickups_templates" : []
+}

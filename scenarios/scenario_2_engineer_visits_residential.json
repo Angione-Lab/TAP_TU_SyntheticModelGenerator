@@ -1,0 +1,189 @@
+{
+	"id_prefix" : "Synthetic Scenario (Broadband Engineer Visits)",
+	"place_names" : [
+		"Middlesbrough, England",
+		"Coulby Newham, England",
+		"Nunthorpe, England",
+		"Stockton-on-Tees, England",
+		"Thornaby, England",
+		"Egglescliffe, England",
+		"Yarm, England",
+		"Billingham, England",
+		"Redcar and Cleveland, England"
+	],
+	"depot_tags" : {
+		"building": [
+			"industrial"
+			]
+	},
+	"delivery_tags" : {
+	},	
+	"pickup_tags" : {},
+	"servicing_tags" : {
+		"building": [
+			"house", 
+			"detached", 
+			"static_caravan", 
+			"semidetached_house", 
+			"bungalow", 
+			"manor", 
+			"villa" 
+		]
+	},
+	"target_min_depots" : 1,
+	"target_max_depots" : 1,
+	"target_min_vehicles_per_depot" : 75,
+	"target_max_vehicles_per_depot" : 75,
+	"target_min_deliveries" : 0,
+	"target_max_deliveries" : 0,
+	"target_min_pickups" : 0,
+	"target_max_pickups" : 0,
+	"target_min_shipments" : 0,
+	"target_max_shipments" : 0,
+	"target_min_shipment_pickup_locations" : 0,
+	"target_max_shipment_pickup_locations" : 0,
+	"target_min_shipment_delivery_loications" : 0,
+	"target_max_shipment_delivery_loications" : 0,
+	"target_min_servicing": 360,
+	"target_max_servicing": 360,
+	"vehicle_templates" : [
+		{
+			"definition": {
+				"costPerTravelHour": 20.8,
+				"costPerWaitingHour": 2.0,
+				"costPerServicingHour": 1.0,
+				"costPerKm": 1.0,
+				"costFixed": 500.0,
+				"costPerStop": 1.0,
+				"workTimeHours": [
+					{
+						"inclusiveLowerLimit": 12.0,
+						"prohibited": true
+					}
+				],
+				"start": {
+					"type": "START_AT_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+						"latitude": 54.57270,
+						"longitude": -1.28159
+					},
+					"openTime": "2023-07-20T08:00",
+					"_id": null
+				},
+				"end": {
+					"type": "RETURN_TO_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+						"latitude": 54.57270,
+						"longitude": -1.28159
+					},
+					"closeTime": "2023-07-20T18:30",
+					"_id": null
+				},
+				"capacities": [
+					1000
+				],
+				"skills": [],
+				"preloadedStops": [
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-20T11:30",
+						"closeTime": "2023-07-20T14:30",
+						"_id": null
+					}
+				],
+				"travelTimeMultiplier": 1.0
+			},
+			"_id": "engineer_van"
+		}
+	],
+	"deliveries_templates" : [],
+	"pickups_templates" : [],
+	"servicing_templates": [		
+		{
+			"_id": "residential_install_am",
+			"quantities": [1],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+				{
+					"type": "SERVICE",
+					"durationMillis": 5400000,
+					"costFixed": 0.0,
+					"centering": true,
+					"name": null,
+					"address": null,
+					"coordinate": null,
+					"openTime": "2023-07-20T08:00",
+					"closeTime": "2023-07-21T13:00",
+					"_id": null
+				}
+			]
+		},
+		{
+			"_id": "residential_install_pm",
+			"quantities": [1],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+				{
+					"type": "SERVICE",
+					"durationMillis": 5400000,
+					"costFixed": 0.0,
+					"centering": true,
+					"name": null,
+					"address": null,
+					"coordinate": null,
+					"openTime": "2023-07-20T13:00",
+					"closeTime": "2023-07-21T18:00",
+					"_id": null
+				}
+			]
+		},
+		{
+			"_id": "residential_diagnostic_am",
+			"quantities": [1],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+				{
+					"type": "SERVICE",
+					"durationMillis": 2700000,
+					"costFixed": 0.0,
+					"centering": true,
+					"name": null,
+					"address": null,
+					"coordinate": null,
+					"openTime": "2023-07-20T08:00",
+					"closeTime": "2023-07-21T13:00",
+					"_id": null
+				}
+			]
+		},
+		{
+			"_id": "residential_diagnostic_pm",
+			"quantities": [1],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+				{
+					"type": "SERVICE",
+					"durationMillis": 2700000,
+					"costFixed": 0.0,
+					"centering": true,
+					"name": null,
+					"address": null,
+					"coordinate": null,
+					"openTime": "2023-07-20T13:00",
+					"closeTime": "2023-07-21T18:00",
+					"_id": null
+				}
+			]
+		}
+	],
+	"servicing_weights": [30, 30, 15, 15]
+}

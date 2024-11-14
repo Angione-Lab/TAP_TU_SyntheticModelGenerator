@@ -1,0 +1,306 @@
+{
+	"id_prefix" : "Synthetic Scenario (Supermarket Distribution Scotland)",
+	"place_names" : [
+		"Scotland"
+	],
+	"depot_tags" : {
+		"building": [
+			"warehouse"
+			]
+	},
+	"delivery_tags" : {
+		# Use of Tesco due to being largest supermarket chain in country, sticking to one chain rather than all supermarkets to keep a natural distrbution of stores
+		"name": ["Tesco", "Tesco Express"], 
+		"brand:wikidata": ["Q487494", "Q98456772"]
+	},
+	"pickup_tags" : {
+		"name": ["Tesco", "Tesco Express"],
+		"brand:wikidata": ["Q487494", "Q98456772"]
+	},
+	"target_min_depots" : 1,
+	"target_max_depots" : 1,
+	"target_min_vehicles_per_depot" : 20,
+	"target_max_vehicles_per_depot" : 20,
+	"target_min_deliveries" : 220,
+	"target_max_deliveries" : 300,
+	"target_min_pickups" : 0,
+	"target_max_pickups" : 0,
+	"target_min_shipments" : 0,
+	"target_max_shipments" : 0,
+	"target_min_shipment_pickup_locations" : 0,
+	"target_max_shipment_pickup_locations" : 0,
+	"target_min_shipment_delivery_loications" : 0,
+	"target_max_shipment_delivery_loications" : 0,
+	"vehicle_templates" : [
+		{
+			"definition": {
+				"costPerTravelHour": 20.8,
+				"costPerWaitingHour": 2.0,
+				"costPerServicingHour": 1.0,
+				"costPerKm": 1.0,
+				"costFixed": 1000.0,
+				"costPerStop": 1.0,
+				"workTimeHours": [
+					{
+						"inclusiveLowerLimit": 75,
+						"prohibited": true
+					}
+				],
+				"start": {
+					"type": "START_AT_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"openTime": "2023-07-20T07:00",
+					"_id": "hgv_overnight_scotland_start"
+				},
+				"end": {
+					"type": "RETURN_TO_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"closeTime": "2023-07-21T20:00",
+					"_id": "hgv_overnight_scotland_end"
+				},
+				"capacities": [
+					35
+				],
+				"skills": [],
+				"preloadedStops": [
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-20T12:30",
+						"closeTime": "2023-07-20T13:30",
+						"_id": "hgv_overnight_scotland_break_lunch_day_1"
+					},
+					{
+						"type": "BREAK",
+						"durationMillis": 50400000,
+						"costFixed": 500.0,
+						"centering": true,
+						"openTime": "2023-07-20T18:30",
+						"closeTime": "2023-07-20T19:00",
+						"_id": "hgv_overnight_scotland_break_overnight_day_1"
+					},{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-21T12:30",
+						"closeTime": "2023-07-21T13:30",
+						"_id": "hgv_overnight_scotland_break_lunch_day_2"
+					}
+				],
+				"travelTimeMultiplier": 1.1
+			},
+			"_id": "hgv_overnight_scotland"
+		},
+		{
+			"definition": {
+				"costPerTravelHour": 20.8,
+				"costPerWaitingHour": 2.0,
+				"costPerServicingHour": 1.0,
+				"costPerKm": 1.0,
+				"costFixed": 500.0,
+				"costPerStop": 1.0,
+				"workTimeHours": [
+					{
+						"inclusiveLowerLimit": 12,
+						"prohibited": true
+					}
+				],
+				"start": {
+					"type": "START_AT_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"openTime": "2023-07-20T07:00",
+					"_id": "hgv_day_1_scotland_start"
+				},
+				"end": {
+					"type": "RETURN_TO_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"closeTime": "2023-07-20T20:00",
+					"_id": "hgv_day_1_scotland_end"
+				},
+				"capacities": [
+					35
+				],
+				"skills": [],
+				"preloadedStops": [
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-20T12:30",
+						"closeTime": "2023-07-20T13:30",
+						"_id": "hgv_day_1_scotland_break_lunch"
+					},
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-20T15:30",
+						"closeTime": "2023-07-20T17:00",
+						"_id": "hgv_day_1_scotland_break_pm"
+					}
+				],
+				"travelTimeMultiplier": 1.1
+			},
+			"_id": "hgv_day_1_scotland"
+		},
+		{
+			"definition": {
+				"costPerTravelHour": 20.8,
+				"costPerWaitingHour": 2.0,
+				"costPerServicingHour": 1.0,
+				"costPerKm": 1.0,
+				"costFixed": 500.0,
+				"costPerStop": 1.0,
+				"workTimeHours": [
+					{
+						"inclusiveLowerLimit": 12,
+						"prohibited": true
+					}
+				],
+				"start": {
+					"type": "START_AT_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"openTime": "2023-07-21T07:00",
+					"_id": "hgv_day_2_scotland_start"
+				},
+				"end": {
+					"type": "RETURN_TO_DEPOT",
+					"durationMillis": 0,
+					"costFixed": 0.0,
+					"centering": true,
+					"coordinate": {
+                            "latitude": 55.656635800000004,
+                            "longitude": -3.1920295641828647
+                        },
+					"closeTime": "2023-07-21T20:00",
+					"_id": "hgv_day_2_scotland_end"
+				},
+				"capacities": [
+					35
+				],
+				"skills": [],
+				"preloadedStops": [
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-21T12:30",
+						"closeTime": "2023-07-21T13:30",
+						"_id": "hgv_day_2_scotland_break_lunch"
+					},
+					{
+						"type": "BREAK",
+						"durationMillis": 1800000,
+						"costFixed": 0.0,
+						"centering": true,
+						"openTime": "2023-07-21T15:30",
+						"closeTime": "2023-07-21T17:00",
+						"_id": "hgv_day_2_scotland_break_pm"
+					}
+				],
+				"travelTimeMultiplier": 1.1
+			},
+			"_id": "hgv_day_2_scotland"
+		}
+	],
+	"vehicle_weights" : [10, 10, 10],
+	"deliveries_templates" : [
+		{
+			"quantities": [
+			    1
+			],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+			    {
+			        "type": "DELIVER",
+			        "durationMillis": 600000,
+			        "costFixed": 0.0,
+			        "centering": true,
+			        "name": null,
+			        "address": null,
+			        "coordinate": null,
+			        "openTime": "2023-07-20T07:00",
+			        "closeTime": "2023-07-21T21:00",
+			        "_id": "delivery_scotland"
+			    }
+			],
+			"_id": "supermarket_scotland_single_cage"
+		}
+	],
+	"pickups_templates" : [],
+	"shipments_templates": [
+		{
+			"quantities": [
+			    1
+			],
+			"breakAllowedBetweenStops": true,
+			"stops": [
+			    {
+			        "type": "SHIPMENT_PICKUP",
+			        "durationMillis": 300000,
+			        "costFixed": 0.0,
+			        "centering": true,
+			        "name": "depot_pickup_scotland",
+			        "address": null,
+			        "coordinate": {
+			            "latitude": 55.656635800000004,
+			            "longitude": -3.1920295641828647
+			        },
+			        "openTime": "2023-07-20T07:00",
+			        "closeTime": "2023-07-21T21:00",
+			        "_id": "depot_pickup_scotland"
+			    },
+			    {
+			        "type": "SHIPMENT_DELIVERY",
+			        "durationMillis": 600000,
+			        "costFixed": 0.0,
+			        "centering": true,
+			        "name": null,
+			        "address": null,
+			        "coordinate": null,
+			        "openTime": "2023-07-20T07:00",
+			        "closeTime": "2023-07-23T21:00",
+			        "_id": "delivery_scotland"
+			    }
+			],
+			"_id": "supermarket_scotland_single_cage"
+		}
+	],
+	"shipments_weights": [100]
+}
