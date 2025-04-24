@@ -2,6 +2,13 @@
 
 A tool for generating synthetic Vehicle Routing Problem (VRP) instances by sampling from OpenStreetMap (OSM) data.
 
+## Directory Structure
+
+The project contains the following key directories:
+
+- `scenarios/`: Contains example scenario JSON files that define the input parameters for generating VRP problems
+- `paper_input_models/`: Contains the generated VRP problem files that are created from the scenario files in the `scenarios/` directory
+
 ## Installation
 
 1. Clone this repository:
@@ -28,19 +35,19 @@ The `osm_synthesiser.py` script generates synthetic VRP problems by sampling fro
 ### Basic Example
 
 ```bash
-python osm_synthesiser.py -s "input_scenario.json" -o "output_problem.json"
+python osm_synthesiser.py -s "scenarios/example_scenario.json" -o "paper_input_models/output_problem.json"
 ```
 
 ### Example with Random Seed
 
 ```bash
-python osm_synthesiser.py -s "input_scenario.json" -o "output_problem.json" -r 42
+python osm_synthesiser.py -s "scenarios/example_scenario.json" -o "paper_input_models/output_problem.json" -r 42
 ```
 
 ### Example with Custom Cache Directory
 
 ```bash
-python osm_synthesiser.py -s "input_scenario.json" -o "output_problem.json" -r 42 -c "/tmp"
+python osm_synthesiser.py -s "scenarios/example_scenario.json" -o "paper_input_models/output_problem.json" -r 42 -c "/tmp"
 ```
 
 ## Input Scenario File Format
@@ -114,6 +121,8 @@ The script supports two ways to specify place names:
    - The selection is deterministic when using the same random seed
 
 ### Example Scenarios
+
+The `scenarios/` directory contains several example scenario files that demonstrate different use cases:
 
 1. **Basic Urban Delivery Scenario**:
 ```json
@@ -191,6 +200,8 @@ The script generates a JSON file containing the synthetic VRP problem with the f
 }
 ```
 
+The generated files are stored in the `paper_input_models/` directory, with filenames based on the scenario's `id_prefix` and the random seed used.
+
 ## Notes
 
 - The script uses OSMnx to fetch data from OpenStreetMap, so an internet connection is required.
@@ -199,3 +210,5 @@ The script generates a JSON file containing the synthetic VRP problem with the f
 - When using `place_names_choose_one_of`, the script will print the selected place names during execution.
 - Multiple place names in `place_names` will create a problem that spans across all specified locations.
 - The script will fetch data for each place name separately and combine them into a single problem instance.
+- Example scenarios in the `scenarios/` directory can be used as templates for creating new scenarios.
+- Generated problem files in `paper_input_models/` can be used as input for VRP solvers.
