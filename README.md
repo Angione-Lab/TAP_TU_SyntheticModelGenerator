@@ -89,6 +89,30 @@ The input scenario file should be a JSON file with the following structure:
 }
 ```
 
+### Place Names Configuration
+
+The script supports two ways to specify place names:
+
+1. **Single or Multiple Fixed Places**:
+   - Use the `place_names` field to specify one or more places
+   - Example: `"place_names": ["London, UK", "Manchester, UK"]`
+   - The script will generate a problem that includes locations from all specified places
+   - This is useful when you want to create a problem spanning multiple cities or regions
+
+2. **Random Selection from Multiple Options**:
+   - Use the `place_names_choose_one_of` field to specify multiple sets of places
+   - Example: 
+     ```json
+     "place_names_choose_one_of": [
+         ["London, UK"],
+         ["Paris, France"],
+         ["Berlin, Germany"]
+     ]
+     ```
+   - The script will randomly select one set of places from the list
+   - This is useful for generating different problem instances in different locations
+   - The selection is deterministic when using the same random seed
+
 ### Example Scenarios
 
 1. **Basic Urban Delivery Scenario**:
@@ -113,11 +137,7 @@ The input scenario file should be a JSON file with the following structure:
 ```json
 {
     "id_prefix": "multi_city",
-    "place_names_choose_one_of": [
-        ["London, UK"],
-        ["Paris, France"],
-        ["Berlin, Germany"]
-    ],
+    "place_names": ["London, UK", "Manchester, UK"],
     "depot_tags": {
         "amenity": "warehouse"
     },
@@ -131,6 +151,28 @@ The input scenario file should be a JSON file with the following structure:
     "target_max_depots": 5,
     "target_min_vehicles_per_depot": 3,
     "target_max_vehicles_per_depot": 5
+}
+```
+
+3. **Random City Selection**:
+```json
+{
+    "id_prefix": "random_city",
+    "place_names_choose_one_of": [
+        ["London, UK"],
+        ["Paris, France"],
+        ["Berlin, Germany"]
+    ],
+    "depot_tags": {
+        "amenity": "warehouse"
+    },
+    "delivery_tags": {
+        "shop": "supermarket"
+    },
+    "target_min_depots": 2,
+    "target_max_depots": 3,
+    "target_min_vehicles_per_depot": 2,
+    "target_max_vehicles_per_depot": 4
 }
 ```
 
@@ -154,4 +196,6 @@ The script generates a JSON file containing the synthetic VRP problem with the f
 - The script uses OSMnx to fetch data from OpenStreetMap, so an internet connection is required.
 - The cache directory is used to store downloaded OSM data to avoid repeated downloads.
 - The random seed can be used to reproduce the same problem instance.
-- The script supports multiple place names and can randomly choose one from a list.
+- When using `place_names_choose_one_of`, the script will print the selected place names during execution.
+- Multiple place names in `place_names` will create a problem that spans across all specified locations.
+- The script will fetch data for each place name separately and combine them into a single problem instance.
